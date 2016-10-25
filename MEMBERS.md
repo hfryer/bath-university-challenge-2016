@@ -1,3 +1,5 @@
-Luke Shilleto - <lshilleto@expedia.com> \n
-Harry Fryer -<hpf23@bath.ac.uk> \n
+Luke Shilleto - <lshilleto@expedia.com>
+
+Harry Fryer -<hpf23@bath.ac.uk>
+
 Tom Duffel
