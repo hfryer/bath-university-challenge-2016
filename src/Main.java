@@ -32,8 +32,8 @@ public class Main {
                 String inputLine;
                 while ((inputLine = in.readLine()) != null) {
                     Pattern TAG_REGEX1 = Pattern.compile("<title>(.+?)</title>");
-                    Pattern TAG_REGEX2 = Pattern.compile("<meta name=\"description\"(.+?)>");
-                    Pattern TAG_REGEX3 = Pattern.compile("<meta name=\"keywords\"(.+?)>");
+                    Pattern TAG_REGEX2 = Pattern.compile("<meta name=\"description\" content=\"(.+?)\" />");
+                    Pattern TAG_REGEX3 = Pattern.compile("<meta name=\"keywords\" content=\"(.+?)\" />");
 
                     Matcher matcher1 = TAG_REGEX1.matcher(inputLine);
                     Matcher matcher2 = TAG_REGEX2.matcher(inputLine);
