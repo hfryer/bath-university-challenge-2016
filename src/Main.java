@@ -23,27 +23,32 @@ public class Main {
         for(int x =0;x<20;x++){
             try {
                 BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-                String URL_to_check= input.readLine();
-                URL oracle = new URL(URL_to_check);
-                //URL oracle = new URL("http://google.com");
+                //String URL_to_check= input.readLine();
+                //URL oracle = new URL(URL_to_check);
+                URL oracle = new URL("http://www.theverge.com/2016/10/24/13379386/microsoft-surface-event-windows-10-devices-preview");
                 BufferedReader in = new BufferedReader (new InputStreamReader(oracle.openStream()));
 
                 ArrayList<String> result = new ArrayList<String>();
                 String inputLine;
                 while ((inputLine = in.readLine()) != null) {
                     Pattern TAG_REGEX1 = Pattern.compile("<title>(.+?)</title>");
-                    Pattern TAG_REGEX2 = Pattern.compile("<meta name=(.+?)>");
-                     List<String> titles = new ArrayList<String>();
+                    Pattern TAG_REGEX2 = Pattern.compile("<meta name=\"description\" content=\"(.+?)\">");
+                    Pattern TAG_REGEX3 = Pattern.compile("<meta name=\"keywords\" content=\"(.+?)\">");
 
                     Matcher matcher1 = TAG_REGEX1.matcher(inputLine);
                     Matcher matcher2 = TAG_REGEX2.matcher(inputLine);
+                    Matcher matcher3 = TAG_REGEX3.matcher(inputLine);
                     while (matcher1.find()) {
-                        titles.add(matcher1.group(1));
                         System.out.println("title = "+matcher1.group(1));
+                        return;
                     }
                     while (matcher2.find()) {
-                        titles.add(matcher2.group(1));
-                        System.out.println("<meta= "+matcher2.group(1));
+                        System.out.println("meta description = "+matcher2.group(1));
+                        return;
+                    }
+                    while (matcher3.find()) {
+                        System.out.println("meta keywords = "+matcher3.group(1));
+                        return;
                     }
 
 
